@@ -48,4 +48,17 @@ export class AuthService {
   isAuthenticated() {
     return this.me().pipe(map(user => !!user));
   }
+
+  register(data: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+  }) {
+    return this.http.post(
+      `${this.api}/auth/register`,
+      data,
+      { withCredentials: true }
+    );
+  }
 }

@@ -1,1 +1,72 @@
-<p>register works!</p>
+<div class="login-wrapper">
+    <mat-card class="login-card">
+        <h2 class="title">Crear cuenta</h2>
+        <p class="subtitle">
+            Regístrate para comenzar a gestionar tus deudas
+        </p>
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="firstName" />
+                <mat-error *ngIf="form.controls.firstName.invalid">
+                    El nombre es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput formControlName="lastName" />
+                <mat-error *ngIf="form.controls.lastName.invalid">
+                    El apellido es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Correo electrónico</mat-label>
+                <input matInput type="email" formControlName="email" />
+                <mat-error *ngIf="form.controls.email.invalid">
+                    Correo electrónico inválido
+                </mat-error>
+            </mat-form-field>
+
+            <!-- CONTRASEÑA -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" formControlName="password" />
+            </mat-form-field>
+
+            <ul class="password-rules">
+                <li [class.ok]="!passwordErrors['minLength']">
+                    ✔ Mínimo 8 caracteres
+                </li>
+                <li [class.ok]="!passwordErrors['hasUppercase']">
+                    ✔ Al menos una mayúscula
+                </li>
+                <li [class.ok]="!passwordErrors['hasLowercase']">
+                    ✔ Al menos una minúscula
+                </li>
+                <li [class.ok]="!passwordErrors['hasSpecial']">
+                    ✔ Un carácter especial
+                </li>
+            </ul>
+
+
+            <button mat-flat-button color="primary" class="login-button" type="submit"
+                [disabled]="loading || form.invalid">
+                <ng-container *ngIf="!loading">
+                    Registrarse
+                </ng-container>
+
+                <ng-container *ngIf="loading">
+                    <mat-spinner diameter="20"></mat-spinner>
+                </ng-container>
+            </button>
+
+            <div class="footer">
+                <span>¿Ya tienes cuenta?</span>
+                <a routerLink="/auth/login">Iniciar sesión</a>
+            </div>
+        </form>
+    </mat-card>
+</div>
