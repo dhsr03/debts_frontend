@@ -1,0 +1,324 @@
+/* NAVBAR */
+.navbar {
+  height: 64px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BRAND */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+
+  background: rgba(63, 81, 181, 0.1);
+}
+
+.brand-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: #3f51b5;
+}
+
+.brand-text {
+  white-space: nowrap;
+}
+
+.user-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  cursor: pointer;
+}
+
+/* CONTENEDOR */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ACCIONES */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+/* FILTRO */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #555;
+}
+
+/* SELECT */
+.select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.filter-select {
+  appearance: none;
+  min-width: 160px;
+  padding: 0.45rem 2.2rem 0.45rem 0.75rem;
+  background: #fff;
+  border: 1px solid #d6d6d6;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #3f51b5;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.15);
+  }
+}
+
+.select-arrow {
+  position: absolute;
+  right: 0.75rem;
+  pointer-events: none;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #777;
+}
+
+/* BOTÓN */
+.new-btn {
+  background: #3f51b5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* TABLA */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background: #3f51b5;
+  color: white;
+}
+
+th,
+td {
+  padding: 0.9rem;
+  text-align: left;
+}
+
+tbody tr {
+  border-top: 1px solid #eee;
+  cursor: pointer;
+
+  &:hover {
+    background: #f9f9f9;
+  }
+}
+
+/* ESTADOS */
+.status {
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.paid {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* ACCIONES */
+.actions-col {
+  width: 110px;
+  text-align: center;
+}
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+  }
+}
+
+.icon-btn.edit {
+  color: #3f51b5;
+
+  &:hover {
+    background: rgba(63, 81, 181, 0.15);
+  }
+}
+
+.icon-btn.delete {
+  color: #d32f2f;
+
+  &:hover {
+    background: rgba(211, 47, 47, 0.15);
+  }
+}
+
+/* EMPTY / LOADING */
+.loading,
+.empty {
+  text-align: center;
+  color: #777;
+  margin-top: 2rem;
+}
+
+.icon-btn.pay {
+  color: #2e7d32;
+
+  &:hover {
+    background: rgba(46, 125, 50, 0.15);
+  }
+}
+
+.export-btn {
+  background: #ffffff;
+  color: #3f51b5;
+  border: 1px solid #3f51b5;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background: rgba(63, 81, 181, 0.08);
+  }
+}
+
+/* SUMMARY */
+.summary {
+  margin-bottom: 1rem;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #eee;
+
+  h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  p {
+    margin: 0.4rem 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  span {
+    font-size: 0.8rem;
+    color: #999;
+  }
+}
+
+.card.paid {
+  border-left: 4px solid #2e7d32;
+}
+
+.card.pending {
+  border-left: 4px solid #f9a825;
+}
+
+.chart-container {
+  max-width: 320px;
+  margin: 0.5rem auto 0;
+}
+
+.chart-container canvas {
+  max-height: 220px;
+}
+
+.icon-btn.view {
+
+  &:hover {
+    background: rgba(25, 118, 210, 0.15);
+  }
+
+  svg {
+    fill: currentColor;
+  }
+}

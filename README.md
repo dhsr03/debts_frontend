@@ -1,59 +1,139 @@
-# DebtsFrontend
+# Debts Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Frontend de la aplicación **APP Deudas**, desarrollado con **Angular 21**, que permite gestionar deudas, visualizar resúmenes, exportar información y operar contra un backend NestJS con autenticación basada en cookies.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🧰 Requisitos previos
+
+Asegúrate de tener instalado lo siguiente:
+
+- **Node.js** ≥ 20.x  
+- **npm** ≥ 9.x  
+- **Angular CLI** ≥ 21  
+- Backend **Debts API** corriendo (ver README del backend)
+
+Verificar versiones:
+
+```bash
+node -v
+npm -v
+ng version
+```
+
+---
+
+## 📦 Instalación del proyecto
+
+Clona el repositorio y entra al directorio:
+
+```bash
+git clone <url-del-repositorio>
+cd debts-frontend
+```
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## ⚙️ Configuración de entorno
+
+Verifica el archivo:
+
+```text
+src/environments/environment.ts
+```
+
+Debe apuntar correctamente al backend:
+
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000', // URL del backend NestJS
+};
+```
+
+⚠️ Importante:
+- El backend debe permitir **CORS con credentials**
+- El frontend usa **cookies HTTP Only** para autenticación
+
+---
+
+## 🚀 Ejecutar en modo desarrollo
+
+Inicia el servidor de desarrollo:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego abre en el navegador:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+La aplicación se recargará automáticamente cuando modifiques el código fuente.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 🔐 Autenticación
 
-To build the project run:
+Este frontend depende de un backend con autenticación activa.
+
+Flujo esperado:
+1. Iniciar sesión desde `/auth/login`
+2. El backend setea la cookie de sesión
+3. El frontend consume los endpoints con `withCredentials: true`
+
+Si no estás autenticado, serás redirigido al login.
+
+---
+
+## 📊 Funcionalidades principales
+
+- Listado de deudas
+- Filtro por estado (Todas / Pendientes / Pagadas)
+- Crear, ver, editar y eliminar deudas
+- Marcar deuda como pagada
+- Resumen visual (totales y cantidades)
+- Gráficas de resumen
+- Exportación a **CSV** y **JSON**
+- UI moderna con SweetAlert2
+
+---
+
+## 🏗️ Build de producción
+
+Generar build optimizado:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los archivos se generarán en:
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```text
+dist/
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🧠 Notas importantes
 
-```bash
-ng e2e
-```
+- El frontend **no funcionará correctamente** si el backend no está corriendo
+- Redis debe estar activo si el backend usa cache
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 👤 Autor
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Daniel Humberto Soto Rincón
+
+dhsr03@gmail.com
+
+3204236748

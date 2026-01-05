@@ -1,0 +1,28 @@
+<div class="modal-container">
+  <h2 class="modal-title">Nueva deuda</h2>
+
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Monto</mat-label>
+      <input matInput type="number" formControlName="amount" />
+    </mat-form-field>
+  </form>
+
+  <div class="modal-actions">
+    <button mat-button (click)="close()">Cancelar</button>
+
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="form.invalid || loading"
+      (click)="submit()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>
